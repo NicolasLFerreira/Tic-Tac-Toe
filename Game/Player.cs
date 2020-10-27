@@ -36,11 +36,13 @@ namespace TicTacToe.Game
             // Ask for input from the current turn's player
             Console.Write($"\nPLAYER '{Icon}' row: ");
             int row = Utilities.Utilities.ValidNumber(1, 3, 0);
+            row--;
 
             Console.ForegroundColor = TeamColor;
             Console.Write($"\nPLAYER '{Icon}' column: ");
             int column = Utilities.Utilities.ValidNumber(1, 3, 0);
-            
+            column--;
+
             Console.ForegroundColor = ConsoleColor.Gray;
             return new int[] { row, column };
         }
