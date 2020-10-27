@@ -35,7 +35,6 @@ namespace TicTacToe.Utilities
                 Console.ForegroundColor = ConsoleColor.Gray;
                 input = IntegerInput();
             }
-            input--;
             return input;
         }
 
