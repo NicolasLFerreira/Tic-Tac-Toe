@@ -14,7 +14,9 @@ namespace TicTacToe.Utilities
 
             while (!int.TryParse(input, out output))
             {
-                Console.Write("\nThat's not a number! Enter one please: ");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.Write("\n->That's not a number! Enter one please: ");
+                Console.ForegroundColor = ConsoleColor.Gray;
                 input = Console.ReadKey().KeyChar.ToString();
             }
             return output;
