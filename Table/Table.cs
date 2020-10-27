@@ -98,10 +98,14 @@ namespace TicTacToe.Table
                     {
                         total += Matrix[row, column].Value;
 
-                        if (total == 3 || total == 30) return Matrix[row, column].Icon;
-                        total = 0;
+                        if (total == 3 || total == 30)
+                        {
+                            total = 0;
+                            return Matrix[row, column].Icon;
+                        }
                     }
                 }
+                total = 0;
             }
 
             // Column check
@@ -109,14 +113,18 @@ namespace TicTacToe.Table
             {
                 for (int column = 0; column < 3; column++)
                 {
-                    if (Matrix[row, column] != null)
+                    if (Matrix[column, row] != null)
                     {
-                        total += Matrix[row, column].Value;
+                        total += Matrix[column, row].Value;
 
-                        if (total == 3 || total == 30) return Matrix[row, column].Icon;
-                        total = 0;
+                        if (total == 3 || total == 30)
+                        {
+                            total = 0;
+                            return Matrix[column, row].Icon;
+                        }
                     }
                 }
+                total = 0;
             }
 
             // Diagonal check \
