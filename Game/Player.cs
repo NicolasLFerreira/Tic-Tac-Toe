@@ -30,11 +30,17 @@ namespace TicTacToe.Game
         
         public int[] Move()
         {
+            // Sets the color of the text to the team's color
             Console.ForegroundColor = TeamColor;
+
+            // Ask for input from the current turn's player
             Console.Write($"\nPLAYER '{Icon}' row: ");
             int row = Utilities.Utilities.ValidNumber(1, 3, 0);
+
+            Console.ForegroundColor = TeamColor;
             Console.Write($"\nPLAYER '{Icon}' column: ");
             int column = Utilities.Utilities.ValidNumber(1, 3, 0);
+            
             Console.ForegroundColor = ConsoleColor.Gray;
             return new int[] { row, column };
         }
