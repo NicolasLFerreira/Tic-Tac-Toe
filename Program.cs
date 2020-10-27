@@ -4,59 +4,62 @@ namespace TicTacToe
 {
     class Program
     {
-        static bool play = true;
-        static bool win = false;
-        static char checkWin;
+        // Game variables
+        static bool _play = true;
+        static char _checkWin;
+        static int _choice;
 
         // Players instance
-        static Game.Player playerX = new Game.Player(true, ConsoleColor.DarkYellow); // 'true' is the X player
-        static Game.Player playerO = new Game.Player(false, ConsoleColor.Blue); // 'false' is the O player
+        static Game.Player _playerX = new Game.Player(true, ConsoleColor.DarkYellow); // 'true' is the X player
+        static Game.Player _playerO = new Game.Player(false, ConsoleColor.Blue); // 'false' is the O player
 
         // Table instance
-        static Table.Table table = new Table.Table();
+        static Table.Table _table = new Table.Table();
 
         static void Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.White;
-            
-            // Game variables
-            play = true;
-            win = false;
+            _play = true;
 
-            while (play)
+            while (_play)
             {
-                while (!win)
-                {
-                    table.TableBuild();
-                    table.Movement(playerX); // Player X
-                    Won(); // Check to see if anyone wins
-                    table.TableBuild();
-                    table.Movement(playerO); // Player O
-                    table.TableBuild();
-                    Won();
-                }
+                _table.TableBuild();
+                _table.Movement(_playerX); // Player X
+                _play = Win(); // Check to see if anyone wins
+
+                if (!_play) break;
+
+                _table.TableBuild();
+                _table.Movement(_playerO); // Player O
+                _table.TableBuild();
+                _play = Win();
+                Console.Clear();
             }
         }
 
-        public static void Won()
+        public static bool Win()
         {
-            checkWin = table.CheckWin();
-            if (checkWin != '.')
+            _checkWin = _table.CheckWin();
+            if (_checkWin != '.')
             {
-                table.TableBuild();
-                win = true;
+                // Prints the final table and 
+                _table.TableBuild();
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"\nCongratulations to player '{checkWin}' for winning the game!");
-                Console.WriteLine($"Wish to continue?" +
+                Console.WriteLine($"\nCongratulations to player '{_checkWin}' for winning the game!" +
+                                  $"\nWish to continue?" +
                                   $"\nYes: 1" +
                                   $"\nNo: 2");
-                if (Utilities.Utilities.ValidNumber(1, 2, 0) == 1)
+
+                // Asks for input and resets / quits the program depending on the choice
+                _choice = Utilities.Utilities.ValidNumber(1, 2, 0);
+                if (_choice == 1)
                 {
-                    play = true;
-                    Array.Clear(table.Matrix, 0, table.Matrix.Length);
+                    _table = new Table.Table();
+                    return true;
                 }
-                else play = false;
+                else return false;
             }
+            return true;
         }
     }
 }
