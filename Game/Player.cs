@@ -43,7 +43,7 @@ namespace TicTacToe.Game
             int column = Utilities.Utilities.ValidNumber(1, 3, 0);
             column--;
 
-            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.ForegroundColor = ConsoleColor.White;
             return new int[] { row, column };
         }
     }

@@ -28,6 +28,7 @@ namespace TicTacToe.Table
         // Method for printing the grid
         public void TableBuild()
         {
+            Console.ForegroundColor = ConsoleColor.White;
             Console.Write("\n|#|");
             // Column number
             for (int i = 0; i < 3; i++)
@@ -54,7 +55,7 @@ namespace TicTacToe.Table
                     else Console.Write("   ");
 
                     // Normalizes color
-                    Console.ForegroundColor = ConsoleColor.Gray;
+                    Console.ForegroundColor = ConsoleColor.White;
                     Console.BackgroundColor = ConsoleColor.Black;
                 }
                 Console.WriteLine();

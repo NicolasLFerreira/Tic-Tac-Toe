@@ -10,8 +10,8 @@ namespace TicTacToe
         static int _choice;
 
         // Players instance
-        static Game.Player _playerX = new Game.Player(true, ConsoleColor.DarkYellow); // 'true' is the X player
-        static Game.Player _playerO = new Game.Player(false, ConsoleColor.Blue); // 'false' is the O player
+        static Game.Player _playerX = new Game.Player(true, ConsoleColor.DarkRed); // 'true' is the X player
+        static Game.Player _playerO = new Game.Player(false, ConsoleColor.Magenta); // 'false' is the O player
 
         // Table instance
         static Table.Table _table = new Table.Table();

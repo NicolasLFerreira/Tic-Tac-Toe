@@ -16,7 +16,7 @@ namespace TicTacToe.Utilities
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.Write("\n->That's not a number! Enter one please: ");
-                Console.ForegroundColor = ConsoleColor.Gray;
+                Console.ForegroundColor = ConsoleColor.White;
                 input = Console.ReadKey().KeyChar.ToString();
             }
             return output;
@@ -32,20 +32,10 @@ namespace TicTacToe.Utilities
                 if (input == special) Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.Write($"\n-> Please enter a number between {min} and {max}: ");
-                Console.ForegroundColor = ConsoleColor.Gray;
+                Console.ForegroundColor = ConsoleColor.White;
                 input = IntegerInput();
             }
             return input;
-        }
-
-        // Continue.
-        public static void Continue()
-        {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("\nPress any key to continue...");
-            Console.ForegroundColor = ConsoleColor.Gray;
-            Console.ReadKey();
-            Console.Clear();
         }
     }
 }
